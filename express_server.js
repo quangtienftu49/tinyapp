@@ -31,8 +31,14 @@ app.get("/urls", (req, res) => {
   res.render("urls_index", templateVars);
 });
 
+// Add a GET Route to Show the Form
+app.get("/urls/new", (req, res) => {
+  res.render("urls_new");
+});
+
 // Render information about a single URL
 app.get("/urls/:shortURL", (req, res) => {
-  const templateVars = { shortURL: req.params.shortURL, longURL: urlDatabase.longURL };
+  const templateVars = { shortURL: req.params.shortURL, longURL: urlDatabase.shortURL };
   res.render("urls_show", templateVars);
 });
+
